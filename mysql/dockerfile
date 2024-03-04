@@ -1,11 +1,7 @@
 FROM mysql/mysql-server:latest
 
-ENV MYSQL_ROOT_PASSWORD=sean
-ENV MYSQL_DATABASE=csc468
+ENV MYSQL_DATABASE mydatabase
+ENV MYSQL_ROOT_PASSWORD mypassword
 
-COPY cattle.csv /cattle.csv
-
-RUN /entrypoint.sh mysqld & \
-    sleep 30s && \
-    mysql -u root -pyour_password -e "CREATE TABLE cattle (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), breed VARCHAR(255))" && \
-    mysqlimport -u root -psean --local csc468 /cattle.csv
+COPY data.csv /docker-entrypoint-initdb.d/
+COPY init-db.sql /docker-entrypoint-initdb.d/
