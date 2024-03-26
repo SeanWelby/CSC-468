@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: sql-serv
-        image: <your_dockerhub_username>/sql-serv:latest
+        image: swelb/sql-serv:latest
         ports:
         - containerPort: 3307
 
