@@ -1,22 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-deployment
-  labels:
-    role: app
+  name: sql-deployment
+  namespace: swelby
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      role: app
+      app: sql
   template:
     metadata:
       labels:
-        role: app
+        app: sql
     spec:
       containers:
-      - name: app
-        image: DOCKER_USER/DOCKER_APP:BUILD_NUMBER
-        resources:
-          requests:
-            cpu: 10m
+      - name: sql-container
+        image: ighost007/python-mysql:latest  # Using the official MySQL image from Docker Hub
+        ports:
+        - containerPort: 3306
