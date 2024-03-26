@@ -8,7 +8,7 @@ df = pd.read_csv('/tmp/cattle.csv')
 conn = mysql.connector.connect(
     host='localhost',
     user='root',
-    password='myrootpassword',
+    password='password',
     database='mydatabase'
 )
 cursor = conn.cursor()
