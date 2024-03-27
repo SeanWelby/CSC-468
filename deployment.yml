@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sql-serv22
+  name: kubesql
   namespace: swelby
 spec:
   replicas: 1
