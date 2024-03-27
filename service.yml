@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sql-serv-service
+  name: kubesql-service
   namespace: swelby
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 3307
     targetPort: 3307
+    protocol: TCP
   selector:
-    app: sql-serv
+    app: sql-serv22
