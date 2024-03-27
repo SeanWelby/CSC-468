@@ -1,23 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sql-serv
+  name: sql-serv22
   namespace: swelby
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sql-serv
+      app: sql-serv22
   template:
     metadata:
       labels:
-        app: sql-serv
+        app: sql-serv22
     spec:
       containers:
-      - name: sql-serv
-        image: ighost007/sql-serv:latest
+      - name: sql-serv-sw
+        image: ighost007/kubesql:latest
         ports:
         - containerPort: 3307
-      imagePullSecrets:
-      - name: my-docker-credentials
-
