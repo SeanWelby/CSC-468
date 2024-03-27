@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sql-serv-deployment
+  name: sql-serv
   namespace: swelby
 spec:
   replicas: 1
@@ -15,7 +15,9 @@ spec:
     spec:
       containers:
       - name: sql-serv
-        image: swelb/sql-serv:latest
+        image: ighost007/sql-serv:latest
         ports:
         - containerPort: 3307
+      imagePullSecrets:
+      - name: my-docker-credentials
 
